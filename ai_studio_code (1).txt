@@ -1,0 +1,45 @@
+check-it/
+├── public/
+│   ├── manifest.json              # PWABuilder-compliant manifest
+│   ├── sw.js                      # Offline service worker
+│   ├── icon-192.png               # PWA standard icon
+│   ├── icon-512.png               # PWA high-res icon
+│   ├── icon-maskable-192.png      # Android adaptive maskable icon
+│   ├── icon-maskable-512.png      # Android adaptive maskable icon
+│   ├── screenshot-mobile.png      # Mobile screenshot for store listing
+│   ├── screenshot-desktop.png     # Desktop screenshot for store listing
+│   └── shield.svg                 # Brand vector icon
+├── src/
+│   ├── components/
+│   │   ├── AdminRoute.tsx         # Admin route protection
+│   │   ├── AuthModal.tsx          # Sign-in & quick role switcher
+│   │   ├── BottomNav.tsx          # Mobile navigation (Dashboard, Fact Checker, History)
+│   │   ├── FactChecker.tsx        # Verification console (Text, Link, Media)
+│   │   ├── FlagModal.tsx          # Crowdsourced misinformation report modal
+│   │   ├── Navbar.tsx             # Header with Check It branding and user profile
+│   │   └── VerdictCard.tsx        # Color-coded result card with 2x PNG generator
+│   ├── context/
+│   │   └── AuthContext.tsx        # Supabase auth sync & demo role state
+│   ├── pages/
+│   │   ├── AdminDashboard.tsx     # HITL moderation & audit trail
+│   │   ├── AnalyticsDashboard.tsx # 9-month trends bar chart & viral metrics
+│   │   └── HistoryPage.tsx        # Global archive & "My Search History"
+│   ├── services/
+│   │   ├── supabaseClient.ts      # Supabase connection with offline fallback
+│   │   └── verificationService.ts # Multi-tier verification dispatcher
+│   ├── types/
+│   │   └── index.ts               # Core TypeScript definitions
+│   ├── App.tsx                    # Main app with background grid
+│   ├── index.css                  # Custom styling
+│   └── main.tsx                   # React root entry
+├── supabase/
+│   ├── functions/
+│   │   └── verify-claim/
+│   │       └── index.ts           # Deno Edge Function with Gemini 2.5 Flash Grounding
+│   └── migrations/
+│       └── 20250101000000_truthguard_schema.sql # PostgreSQL schema, RLS, functions
+├── .env.example
+├── index.html
+├── package.json
+├── tailwind.config.js
+└── vite.config.ts
